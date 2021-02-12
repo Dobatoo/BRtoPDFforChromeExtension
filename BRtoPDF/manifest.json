@@ -1,0 +1,24 @@
+{
+    "name": "BRtoPDF",
+    "version": "1.0",
+    "description": "BR to PDF",
+    "permissions": ["declarativeContent","storage","tabs"],
+    "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.2.0/jspdf.umd.min.js; object-src 'self'",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "page_action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+        "matches": ["https://bookroll.let.media.kyoto-u.ac.jp/*"],
+        "js": ["content.js"]
+        }
+    ],
+    "web_accessible_resources":[
+        "content.js"
+    ],
+    "manifest_version": 2
+}
